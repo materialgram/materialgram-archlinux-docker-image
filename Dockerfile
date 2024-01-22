@@ -3,7 +3,7 @@ FROM archlinux:latest
 
 # Setup
 RUN pacman -Syu --noconfirm && \
-    pacman -S --needed sudo vim git wget tar unzip zip --noconfirm && \
+    pacman -S --needed base-devel sudo github-cli cmake git ninja python boost fmt range-v3 tl-expected microsoft-gsl meson extra-cmake-modules wayland-protocols plasma-wayland-protocols libtg_owt gobject-introspection mm-common libxcomposite --noconfirm && \
     rm -rf /var/cache/pacman/pkg/* && \
     pacman -Sc --noconfirm
 
