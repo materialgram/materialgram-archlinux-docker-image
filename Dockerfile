@@ -3,7 +3,7 @@ FROM archlinux:latest
 
 # Setup
 RUN pacman -Syu --noconfirm && \
-    pacman -S --needed base-devel sudo github-cli cmake git ninja python boost fmt range-v3 tl-expected microsoft-gsl meson extra-cmake-modules wayland-protocols plasma-wayland-protocols libtg_owt gobject-introspection mm-common libxcomposite --noconfirm && \
+    pacman -S --needed base-devel sudo github-cli cmake git ninja python boost fmt range-v3 tl-expected microsoft-gsl meson extra-cmake-modules wayland-protocols plasma-wayland-protocols libtg_owt gobject-introspection mm-common libxcomposite hunspell ffmpeg hicolor-icon-theme lz4 minizip openal rnnoise ttf-opensans glibmm-2.68 qt6-imageformats qt6-svg qt6-wayland xxhash pipewire libxtst libxrandr jemalloc abseil-cpp libdispatch openssl protobuf --noconfirm && \
     rm -rf /var/cache/pacman/pkg/* && \
     pacman -Sc --noconfirm
 
@@ -11,9 +11,8 @@ RUN pacman -Syu --noconfirm && \
 RUN useradd -m builder && \
     echo "builder ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
 
-# Switch to the new user for any future commands
-USER builder
-
 # Change directory to /home/builder
 WORKDIR /home/builder
 
+# Switch user
+USER builder
