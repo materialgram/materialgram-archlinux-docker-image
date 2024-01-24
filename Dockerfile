@@ -7,12 +7,6 @@ RUN pacman -Syu --noconfirm && \
     rm -rf /var/cache/pacman/pkg/* && \
     pacman -Sc --noconfirm
 
-# Create user 'builder'
-RUN useradd -m builder && \
-    echo "builder ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
+RUN mkdir /home/builder
 
-# Change directory to /home/builder
 WORKDIR /home/builder
-
-# Switch user
-USER builder
