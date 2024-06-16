@@ -1,5 +1,4 @@
-# Use official Arch Linux image as base image
-FROM archlinux:latest
+FROM archlinux/archlinux:latest
 
 # Setup
 RUN pacman -Syu --noconfirm && \
